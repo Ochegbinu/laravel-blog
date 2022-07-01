@@ -9,7 +9,7 @@
 @endif
 <form action="{{route('saveCat')}}" method="post">
     @csrf
-    <label for="category">New Category Now</label>
+    <label for="categories">New Category Now</label>
     <input type="text" name="category" class="form-control"><br>
     <div class="form-group text-center">
     <button type="submit" class="btn btn-success btn-md">Save</button>
