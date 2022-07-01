@@ -12,7 +12,7 @@ class PostController extends Controller
     public function create()
     {
         $cats = Category::all();
-       return view('admin.create_post', compact('cats'));
+        return view('admin.create_post', compact('cats'));
     }
 
     public function store(Request $request)
@@ -23,21 +23,17 @@ class PostController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-      $file_path = $request->file_path;
-      $file_path_new_name = time() .$file_path->getClientOriginalName();
-      $file_path->move('/images', $file_path_new_name);
-    
+        //file_path is the form input name, images is the folder you want it to enter and thumbnails is the name of the disk
+        $file = $request->file('file_path')->store('images', 'thumbnails');
 
-
- 
-   $post = Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'category' => $request->category,
-            'file_path' => '/images'. $file_path_new_name,
+            'file_path' => $file,
             'description' => $request->description,
         ]);
 
-    
+
         return redirect()->back()->with('message', 'Your Post has been created successfully');
     }
 

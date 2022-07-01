@@ -19,7 +19,7 @@
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->category}}</td>
-            <td><img src="{{asset('/images' .$post->file_path)}}" /></td>
+            <td><img src="{{asset($post->file_path)}}" /></td>
             <td>{{$post->description}}</td>
 
             <td>
