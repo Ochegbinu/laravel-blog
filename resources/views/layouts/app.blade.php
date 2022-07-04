@@ -9,12 +9,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+ 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 <!--     <script src="{{asset('js/app.js')}}" defer></script>
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    
 
  -->
  <!-- Edictor -->
@@ -94,7 +101,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{route('home')}}">
+            <a class="nav-link" href="{{route('displayPost')}}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Home</span>              
             </a>
