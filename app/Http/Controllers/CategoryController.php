@@ -17,8 +17,9 @@ class CategoryController extends Controller
     }
 
     public function showCat()
-    { 
+    {
         $cats = Category::all();
+        $cats = Category::paginate(5);
         return view('admin.all_categories', compact('cats'));
     }
 
@@ -38,23 +39,20 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
 
         $cats = Category::find($id);
 
-         return view('admin.update_category')->with('cats', $cats);
+        return view('admin.update_category')->with('cats', $cats);
     }
 
     public function edit(Request $request, $id)
     {
-         $cats = Category::find($id);
-         $cats->category = $request->category;
-         $cats->save();
-         
-         return redirect()->route('allCat');
+        $cats = Category::find($id);
+        $cats->category = $request->category;
+        $cats->save();
 
+        return redirect()->route('allCat');
     }
-
-   
-   
 }

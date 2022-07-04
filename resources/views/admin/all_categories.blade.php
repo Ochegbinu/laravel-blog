@@ -37,8 +37,9 @@
   
       
     </tbody>
+    
 </table>
-
+{{ $cats->links() }}
 
 
 @endsection
